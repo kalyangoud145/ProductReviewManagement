@@ -31,13 +31,25 @@ namespace ProductReviewManagement
         public void SelectedRecords(List<ProductReview> listProductReview)
         {
             var recordedData = from productReview in listProductReview
-                               where (productReview.ProductID == 1 || productReview.ProductID == 4 
+                               where (productReview.ProductID == 1 || productReview.ProductID == 4
                                || productReview.ProductID == 9)
                                && productReview.Rating > 3
                                select productReview;
             foreach (var list in recordedData)
             {
                 Console.WriteLine(list.ToString());
+            }
+        }
+        /// <summary>
+        /// Retrieves the count of record existing for each product id
+        /// </summary>
+        /// <param name="listProductReview">The list product review.</param>
+        public void RetrieveCountOfRecords(List<ProductReview> listProductReview)
+        {
+            var recordedData = listProductReview.GroupBy(x => x.ProductID).Select(x => new { ProductID = x.Key, Count = x.Count() });
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("Product ID: " + list.ProductID + " " + "Count: " + list.Count);
             }
         }
     }
