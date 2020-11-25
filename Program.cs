@@ -45,6 +45,7 @@ namespace ProductReviewManagement
                 Console.WriteLine(list.ToString());
             }
             management.TopRecords(productReviewList);
+            management.SelectedRecords(productReviewList);
 
         }
     }
