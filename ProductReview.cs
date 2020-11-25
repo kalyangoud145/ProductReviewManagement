@@ -7,7 +7,7 @@ namespace ProductReviewManagement
     /// <summary>
     /// POCO Class
     /// </summary>
-    class ProductReview
+    public class ProductReview
     {
         public int ProductID { get; set; }
         public int UserID { get; set; }
