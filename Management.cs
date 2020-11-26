@@ -9,6 +9,38 @@ namespace ProductReviewManagement
     public class Management
     {
         public readonly DataTable dataTable = new DataTable();
+        public Management()
+        {
+            //Creating Columns of the DataTable
+            dataTable.Columns.Add("ProductID", typeof(int));
+            dataTable.Columns.Add("UserID", typeof(int));
+            dataTable.Columns.Add("Rating", typeof(double));
+            dataTable.Columns.Add("Review", typeof(string));
+            dataTable.Columns.Add("isLike", typeof(bool));
+
+            //Inserting Data into the Table
+            dataTable.Rows.Add(1, 1, 2d, "Good", true);
+            dataTable.Rows.Add(2, 1, 4d, "Good", true);
+            dataTable.Rows.Add(3, 1, 5d, "Good", true);
+            dataTable.Rows.Add(4, 1, 6d, "Good", false);
+            dataTable.Rows.Add(5, 1, 2d, "nice", true);
+            dataTable.Rows.Add(6, 1, 1d, "bas", true);
+            dataTable.Rows.Add(8, 1, 1d, "Good", false);
+            dataTable.Rows.Add(8, 1, 9d, "nice", true);
+            dataTable.Rows.Add(2, 1, 10d, "nice", true);
+            dataTable.Rows.Add(10, 1, 8d, "nice", true);
+            dataTable.Rows.Add(11, 1, 3d, "nice", true);
+            dataTable.Rows.Add(12, 10, 5d, "Okay", true);
+            dataTable.Rows.Add(13, 10, 8d, "Nice", true);
+            dataTable.Rows.Add(11, 10, 2d, "Bad", false);
+            dataTable.Rows.Add(15, 10, 9d, "Nice", true);
+            dataTable.Rows.Add(14, 10, 7d, "Good", true);
+            dataTable.Rows.Add(16, 10, 9d, "Nice", true);
+            dataTable.Rows.Add(17, 10, 9d, "Nice", true);
+            dataTable.Rows.Add(18, 10, 9d, "Nice", true);
+            dataTable.Rows.Add(19, 10, 9d, "Nice", true);
+            dataTable.Rows.Add(20, 10, 9d, "Nice", true);
+        }
         /// <summary>
         /// Retrive Top  three records with higest ratings
         /// </summary>
