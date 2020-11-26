@@ -41,7 +41,7 @@ namespace ProductReviewManagement
                 new ProductReview(){ProductID=17,UserID=18,Rating=8,Review="nice",isLike=true},
                 new ProductReview(){ProductID=9,UserID=8,Rating=8,Review="nice",isLike=true},
             };
-            // Prints the values in the list
+            /*// Prints the values in the list
             foreach (var list in productReviewList)
             {
                 Console.WriteLine(list.ToString());
@@ -51,7 +51,8 @@ namespace ProductReviewManagement
             management.RetrieveCountOfRecords(productReviewList);
             management.RetrieveProductIDAndReviews(productReviewList);
             management.SkipTop5Records(productReviewList);
-            management.SelectProductIDAndReviews(productReviewList);
+            management.SelectProductIDAndReviews(productReviewList);*/
+            management.RetrieveTrueIsLike();
 
 
         }
