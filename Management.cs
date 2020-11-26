@@ -111,6 +111,10 @@ namespace ProductReviewManagement
                 Console.WriteLine(list.ToString());
             }
         }
+        /// <summary>
+        /// Retrive the product id and review from the list
+        /// </summary>
+        /// <param name="listProductReview">The list product review.</param>
         public void SelectProductIDAndReviews(List<ProductReview> listProductReview)
         {
             var recordedData = listProductReview.Select(x => new { x.ProductID, x.Review });
@@ -119,6 +123,9 @@ namespace ProductReviewManagement
                 Console.WriteLine("Product ID: "+list.ProductID + " " + "Count: " + list.Review);
             }
         }
+        /// <summary>
+        /// Retrieves all the  records in the data table whose islike value is true
+        /// </summary>
         public void RetrieveTrueIsLike()
         {
             var Data = from reviews in dataTable.AsEnumerable()
@@ -127,6 +134,19 @@ namespace ProductReviewManagement
             foreach (var dataItem in Data)
             {
                 Console.WriteLine($"ProductID- {dataItem.ItemArray[0]} UserID- {dataItem.ItemArray[1]} Rating- {dataItem.ItemArray[2]} Review- {dataItem.ItemArray[3]} isLike- {dataItem.ItemArray[4]}");
+            }
+        }
+        /// <summary>
+        /// Retive the average rating of each product id
+        /// </summary>
+        public void AverageRatingByProductID()
+        {
+            var Data = dataTable.AsEnumerable()
+                        .GroupBy(x => x.Field<int>("ProductID"))
+                        .Select(x => new { ProductID = x.Key, Average = x.Average(p => p.Field<double>("Rating")) });
+            foreach (var dataItem in Data)
+            {
+                Console.WriteLine("Product Id: "+dataItem.ProductID + " " +"Average: "+ dataItem.Average);
             }
         }
     }
