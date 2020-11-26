@@ -51,6 +51,7 @@ namespace ProductReviewManagement
             management.RetrieveCountOfRecords(productReviewList);
             management.RetrieveProductIDAndReviews(productReviewList);
             management.SkipTop5Records(productReviewList);
+            management.SelectProductIDAndReviews(productReviewList);
 
 
         }
