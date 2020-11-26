@@ -149,5 +149,19 @@ namespace ProductReviewManagement
                 Console.WriteLine("Product Id: "+dataItem.ProductID + " " +"Average: "+ dataItem.Average);
             }
         }
+        /// <summary>
+        /// Retrive all records whose Reviews  with the nice message.
+        /// </summary>
+        public void ReviewsWithNiceMessage()
+        {
+            var Data = dataTable.AsEnumerable()
+                        .Where(x => x.Field<string>("Review").Contains("Nice", StringComparison.OrdinalIgnoreCase));
+            foreach (var dataItem in Data)
+            {
+                {
+                    Console.WriteLine($"ProductID- {dataItem.ItemArray[0]} UserID- {dataItem.ItemArray[1]} Rating- {dataItem.ItemArray[2]} Review- {dataItem.ItemArray[3]} isLike- {dataItem.ItemArray[4]}");
+                }
+            }
+        }
     }
 }
