@@ -95,7 +95,7 @@ namespace ProductReviewManagement
             // Prints the data from the recorded data
             foreach (var list in recordedData)
             {
-                Console.WriteLine("Product id: "+list.ProductID + " " +"Review: "+ list.Review);
+                Console.WriteLine("Product id: " + list.ProductID + " " + "Review: " + list.Review);
             }
         }
         /// <summary>
@@ -120,7 +120,7 @@ namespace ProductReviewManagement
             var recordedData = listProductReview.Select(x => new { x.ProductID, x.Review });
             foreach (var list in recordedData)
             {
-                Console.WriteLine("Product ID: "+list.ProductID + " " + "Count: " + list.Review);
+                Console.WriteLine("Product ID: " + list.ProductID + " " + "Count: " + list.Review);
             }
         }
         /// <summary>
@@ -146,7 +146,7 @@ namespace ProductReviewManagement
                         .Select(x => new { ProductID = x.Key, Average = x.Average(p => p.Field<double>("Rating")) });
             foreach (var dataItem in Data)
             {
-                Console.WriteLine("Product Id: "+dataItem.ProductID + " " +"Average: "+ dataItem.Average);
+                Console.WriteLine("Product Id: " + dataItem.ProductID + " " + "Average: " + dataItem.Average);
             }
         }
         /// <summary>
@@ -156,6 +156,21 @@ namespace ProductReviewManagement
         {
             var Data = dataTable.AsEnumerable()
                         .Where(x => x.Field<string>("Review").Contains("Nice", StringComparison.OrdinalIgnoreCase));
+            foreach (var dataItem in Data)
+            {
+                {
+                    Console.WriteLine($"ProductID- {dataItem.ItemArray[0]} UserID- {dataItem.ItemArray[1]} Rating- {dataItem.ItemArray[2]} Review- {dataItem.ItemArray[3]} isLike- {dataItem.ItemArray[4]}");
+                }
+            }
+        }
+        /// <summary>
+        /// Retrive all records of given product id order by rating
+        /// </summary>
+        public void OrderByRatingOnCondition()
+        {
+            var Data = dataTable.AsEnumerable()
+                        .Where(x => x.Field<int>("UserID") == 10)
+                        .OrderBy(x => x.Field<double>("Rating"));
             foreach (var dataItem in Data)
             {
                 {
